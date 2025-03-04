@@ -4,12 +4,12 @@
  *
  * @since 6.8.0
  *
- * @group functions
- * @group calendar
+ * @group general
+ * @group template
  *
  * @covers ::get_calendar
  */
-class Tests_Get_Calendar extends WP_UnitTestCase {
+class Tests_General_GetCalendar extends WP_UnitTestCase {
 
 	/**
 	 * Array of post IDs.
