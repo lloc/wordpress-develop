@@ -5939,7 +5939,7 @@ Shankle pork chop prosciutto ribeye ham hock pastrami. T-bone shank brisket baco
 	 */
 	public function test_get_posts_with_pagination() {
 
-		// Test offset
+		// Test offset.
 		$request = new WP_REST_Request( 'GET', '/wp/v2/posts' );
 		$request->set_param( 'offset', 1 );
 		$request->set_param( 'per_page', 1 );
@@ -5950,7 +5950,7 @@ Shankle pork chop prosciutto ribeye ham hock pastrami. T-bone shank brisket baco
 		$this->assertEquals( 30, $response->get_headers()['X-WP-Total'] );
 		$this->assertEquals( 30, $response->get_headers()['X-WP-TotalPages'] );
 
-		// Test paged
+		// Test paged.
 		$request = new WP_REST_Request( 'GET', '/wp/v2/posts' );
 		$request->set_param( 'page', 2 );
 		$request->set_param( 'per_page', 2 );
@@ -5961,7 +5961,7 @@ Shankle pork chop prosciutto ribeye ham hock pastrami. T-bone shank brisket baco
 		$this->assertEquals( 30, $response->get_headers()['X-WP-Total'] );
 		$this->assertEquals( 15, $response->get_headers()['X-WP-TotalPages'] );
 
-		// Test out of bounds
+		// Test out of bounds.
 		$request = new WP_REST_Request( 'GET', '/wp/v2/posts' );
 		$request->set_param( 'page', 4 );
 		$request->set_param( 'per_page', 10 );

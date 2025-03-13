@@ -953,7 +953,7 @@ class WP_REST_Global_Styles_Revisions_Controller_Test extends WP_Test_REST_Contr
 	public function test_get_global_styles_revisions_pagination() {
 		wp_set_current_user( self::$admin_id );
 
-		// Test offset
+		// Test offset.
 		$request = new WP_REST_Request( 'GET', '/wp/v2/global-styles/' . self::$global_styles_id . '/revisions' );
 		$request->set_param( 'offset', 1 );
 		$request->set_param( 'per_page', 1 );
@@ -964,7 +964,7 @@ class WP_REST_Global_Styles_Revisions_Controller_Test extends WP_Test_REST_Contr
 		$this->assertEquals( 3, $response->get_headers()['X-WP-Total'] );
 		$this->assertEquals( 3, $response->get_headers()['X-WP-TotalPages'] );
 
-		// Test paged
+		// Test paged.
 		$request = new WP_REST_Request( 'GET', '/wp/v2/global-styles/' . self::$global_styles_id . '/revisions' );
 		$request->set_param( 'page', 2 );
 		$request->set_param( 'per_page', 2 );
@@ -975,7 +975,7 @@ class WP_REST_Global_Styles_Revisions_Controller_Test extends WP_Test_REST_Contr
 		$this->assertEquals( 3, $response->get_headers()['X-WP-Total'] );
 		$this->assertEquals( 2, $response->get_headers()['X-WP-TotalPages'] );
 
-		// Test out of bounds
+		// Test out of bounds.
 		$request = new WP_REST_Request( 'GET', '/wp/v2/global-styles/' . self::$global_styles_id . '/revisions' );
 		$request->set_param( 'page', 4 );
 		$request->set_param( 'per_page', 6 );

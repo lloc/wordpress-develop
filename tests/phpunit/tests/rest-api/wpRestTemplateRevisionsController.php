@@ -1191,7 +1191,7 @@ class Tests_REST_wpRestTemplateRevisionsController extends WP_Test_REST_Controll
 	public function test_get_template_revisions_pagination() {
 		wp_set_current_user( self::$admin_id );
 
-		// Test offset
+		// Test offset.
 		$request = new WP_REST_Request( 'GET', '/wp/v2/templates/' . self::TEST_THEME . '/' . self::TEMPLATE_NAME . '/revisions' );
 		$request->set_param( 'offset', 1 );
 		$request->set_param( 'per_page', 1 );
@@ -1202,7 +1202,7 @@ class Tests_REST_wpRestTemplateRevisionsController extends WP_Test_REST_Controll
 		$this->assertEquals( 4, $response->get_headers()['X-WP-Total'] );
 		$this->assertEquals( 4, $response->get_headers()['X-WP-TotalPages'] );
 
-		// Test paged
+		// Test paged.
 		$request = new WP_REST_Request( 'GET', '/wp/v2/templates/' . self::TEST_THEME . '/' . self::TEMPLATE_NAME . '/revisions' );
 		$request->set_param( 'page', 2 );
 		$request->set_param( 'per_page', 2 );
@@ -1213,7 +1213,7 @@ class Tests_REST_wpRestTemplateRevisionsController extends WP_Test_REST_Controll
 		$this->assertEquals( 4, $response->get_headers()['X-WP-Total'] );
 		$this->assertEquals( 2, $response->get_headers()['X-WP-TotalPages'] );
 
-		// Test out of bounds
+		// Test out of bounds.
 		$request = new WP_REST_Request( 'GET', '/wp/v2/templates/' . self::TEST_THEME . '/' . self::TEMPLATE_NAME . '/revisions' );
 		$request->set_param( 'page', 4 );
 		$request->set_param( 'per_page', 6 );
