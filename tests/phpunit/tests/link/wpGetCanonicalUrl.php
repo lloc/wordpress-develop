@@ -8,7 +8,7 @@
 
 /**
  * Class for Testing the wp_get_canonical_url() function.
- * 
+ *
  * @group link
  * @group canonical
  * @covers ::wp_get_canonical_url
