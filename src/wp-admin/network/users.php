@@ -97,12 +97,12 @@ if ( isset( $_GET['action'] ) ) {
 								 *
 								 * @since 6.7
 								 *
-								 * @param bool $update_blog_status Whether to update the blog status. Default true.
+								 * @param bool $update_blog_status Whether to update the blog status. Default false.
 								 */
-								if ( apply_filters( 'handle_allusers_update_blog_status', true ) ) {
+								if ( apply_filters( 'handle_network_allusers_update_blog_status', false ) ) {
 									$blogs = get_blogs_of_user( $user_id, true );
 
-									foreach ( (array) $blogs as $details ) {
+									foreach ( $blogs as $details ) {
 										if ( ! is_main_site( $details->userblog_id ) ) { // Main site is not a spam!
 											update_blog_status( $details->userblog_id, 'spam', '1' );
 										}
@@ -130,10 +130,10 @@ if ( isset( $_GET['action'] ) ) {
 								$userfunction = 'all_notspam';
 
 								/** This filter is documented in wp-admin/network/users.php#L95 */
-								if ( apply_filters( 'handle_allusers_blog_status', true ) ) {
+								if ( apply_filters( 'handle_network_allusers_update_blog_status', false ) ) {
 									$blogs = get_blogs_of_user( $user_id, true );
 
-									foreach ( (array) $blogs as $details ) {
+									foreach ( $blogs as $details ) {
 										if ( ! is_main_site( $details->userblog_id ) ) { // Main site is never a spam!
 											update_blog_status( $details->userblog_id, 'spam', '0' );
 										}
