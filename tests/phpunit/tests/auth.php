@@ -288,7 +288,7 @@ class Tests_Auth extends WP_UnitTestCase {
 	 */
 	public function test_wp_check_password_supports_argon2i_hash() {
 		if ( ! defined( 'PASSWORD_ARGON2I' ) ) {
-			$this->fail( 'Argon2i is not supported.' );
+			$this->markTestSkipped( 'Argon2i is not supported.' );
 		}
 
 		$password = 'password';
@@ -306,7 +306,7 @@ class Tests_Auth extends WP_UnitTestCase {
 	 */
 	public function test_wp_check_password_supports_argon2id_hash() {
 		if ( ! defined( 'PASSWORD_ARGON2ID' ) ) {
-			$this->fail( 'Argon2id is not supported.' );
+			$this->markTestSkipped( 'Argon2id is not supported.' );
 		}
 
 		$password = 'password';
