@@ -90,7 +90,7 @@ class Tests_Basic extends WP_UnitTestCase {
 		$package_lock_json = json_decode( $package_lock_json, true );
 		list( $version )   = explode( '-', $GLOBALS['wp_version'] );
 
-		// package.json uses x.y.z, so fill cleaned $wp_version for .0 releases.
+		// package-lock.json uses x.y.z, so fill cleaned $wp_version for .0 releases.
 		if ( 1 === substr_count( $version, '.' ) ) {
 			$version .= '.0';
 		}
@@ -129,7 +129,7 @@ class Tests_Basic extends WP_UnitTestCase {
 		$composer_json   = json_decode( $composer_json, true );
 		list( $version ) = explode( '-', $GLOBALS['wp_version'] );
 
-		// package.json uses x.y.z, so fill cleaned $wp_version for .0 releases.
+		// composer.json uses x.y.z, so fill cleaned $wp_version for .0 releases.
 		if ( 1 === substr_count( $version, '.' ) ) {
 			$version .= '.0';
 		}
