@@ -420,6 +420,7 @@ function ms_load_current_site_and_network( $domain, $path, $subdomain = false ) 
 		if ( $subdomain && ! defined( 'NOBLOGREDIRECT' ) ) {
 			// For a "subdomain" installation, redirect to the signup form specifically.
 			$path        = 'wp-signup.php?new=' . str_replace( '.' . $current_site->domain, '', $domain );
+			/** This filter is documented in wp-includes/link-template.php */
 			$destination = apply_filters( 'network_site_url', $destination . $path, $path, $scheme );
 		} elseif ( $subdomain ) {
 			/*
