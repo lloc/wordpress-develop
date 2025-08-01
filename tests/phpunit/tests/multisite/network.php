@@ -617,6 +617,24 @@ if ( is_multisite() ) :
 		}
 
 		/**
+		 * @ticket 59522
+		 */
+		public function test_id_from_db_is_int() {
+			// ID as string (simulates DB result)
+			$db_result = (object) array(
+				'id'     => '5',
+				'domain' => 'localhost',
+				'path'   => '/',
+			);
+
+			$network = new WP_Network( $db_result );
+
+			$this->assertIsInt( $network->id );
+			$this->assertSame( 5, $network->id );
+		}
+
+
+		/**
 		 * Gets the ID of the site with the highest ID.
 		 * @return int
 		 */
