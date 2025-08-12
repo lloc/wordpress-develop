@@ -121,6 +121,7 @@ jobs:
       matrix:
         memcached: [ true, false ]
         multisite: [ true, false ]
+        # A matrix value is needed in the 'name' directive for proper grouping in the GitHub UI.
         label: [ Compare ]
     with:
       memcached: ${{ matrix.memcached }}
